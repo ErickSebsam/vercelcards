@@ -1,0 +1,107 @@
+/* Fondo general */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #dbeafe, #e0f2fe, #f0f9ff);
+  background-size: 400% 400%;
+  animation: fondoAnimado 12s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes fondoAnimado {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Contenedor a pantalla completa */
+#contenedor {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 50px;
+  height: 90vh;
+  width: 90vw;
+  padding: 20px;
+}
+
+/* Cada carta */
+.carta {
+  background: #ffffff;
+  border-radius: 25px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Enlace ocupa toda la carta */
+.carta a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+/* Texto (encima) */
+.info {
+  position: relative;
+  z-index: 3; /* arriba del pseudo-elemento */
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: rgba(255,255,255,0.85);
+  transition: background 0.5s ease, color 0.4s ease;
+  border-radius: 25px;
+}
+.info h2 { font-size: 2rem; color: #1e40af; margin-bottom: 12px; }
+
+/* Pseudo-elemento que contiene la imagen */
+.carta::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  border-radius: 25px;
+  z-index: 1;
+  transform: scale(1.03);
+}
+
+/* IMÁGENES: cambia las rutas según tus archivos */
+.carta.factura::before { background-image: url("factura.png"); }
+.carta.tienda::before   { background-image: url("tienda.png"); }
+.carta.hotel::before    { background-image: url("hotel.png"); }
+.carta.juego::before    { background-image: url("juego.png"); }
+
+/* Hover: revela la imagen y oscurece el texto */
+.carta:hover::before { opacity: 1; transform: scale(1); }
+.carta:hover .info { background: rgba(0,0,0,0.4); color: #fff; }
+.carta:hover .info h2 { color: #fff; }
+.carta:hover { transform: scale(1.03); box-shadow: 0 15px 30px rgba(0,0,0,0.25); }
+
+/* Responsivo */
+@media (max-width: 900px) {
+  #contenedor {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 25px;
+    height: auto;
+    width: 95vw;
+  }
+  .carta { height: 250px; }
+  .info h2 { font-size: 1.5rem; }
+}
