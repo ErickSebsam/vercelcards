@@ -1,4 +1,3 @@
-/* Fondo general */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -18,7 +17,6 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* Contenedor a pantalla completa */
 #contenedor {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -29,7 +27,6 @@ body {
   padding: 20px;
 }
 
-/* Cada carta */
 .carta {
   background: #ffffff;
   border-radius: 25px;
@@ -39,7 +36,6 @@ body {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Enlace ocupa toda la carta */
 .carta a {
   text-decoration: none;
   color: inherit;
@@ -49,10 +45,10 @@ body {
   position: relative;
 }
 
-/* Texto (encima) */
+
 .info {
   position: relative;
-  z-index: 3; /* arriba del pseudo-elemento */
+  z-index: 3; 
   height: 100%;
   width: 100%;
   display: flex;
@@ -66,7 +62,6 @@ body {
 }
 .info h2 { font-size: 2rem; color: #1e40af; margin-bottom: 12px; }
 
-/* Pseudo-elemento que contiene la imagen */
 .carta::before{
   content: "";
   position: absolute;
@@ -81,19 +76,18 @@ body {
   transform: scale(1.03);
 }
 
-/* IMÁGENES: cambia las rutas según tus archivos */
+
 .carta.factura::before { background-image: url("factura.png"); }
 .carta.tienda::before   { background-image: url("tienda.png"); }
 .carta.hotel::before    { background-image: url("hotel.png"); }
 .carta.juego::before    { background-image: url("juego.png"); }
 
-/* Hover: revela la imagen y oscurece el texto */
 .carta:hover::before { opacity: 1; transform: scale(1); }
 .carta:hover .info { background: rgba(0,0,0,0.4); color: #fff; }
 .carta:hover .info h2 { color: #fff; }
 .carta:hover { transform: scale(1.03); box-shadow: 0 15px 30px rgba(0,0,0,0.25); }
 
-/* Responsivo */
+
 @media (max-width: 900px) {
   #contenedor {
     grid-template-columns: 1fr;
