@@ -1,3 +1,8 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -11,10 +16,23 @@ body {
   align-items: center;
 }
 
+.titulo {
+  padding-top: 52px;
+  text-align: center;
+}
+
 @keyframes fondoAnimado {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 #contenedor {
@@ -48,7 +66,7 @@ body {
 
 .info {
   position: relative;
-  z-index: 3; 
+  z-index: 3;
   height: 100%;
   width: 100%;
   display: flex;
@@ -56,13 +74,18 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: rgba(255,255,255,0.85);
+  background: rgba(255, 255, 255, 0.85);
   transition: background 0.5s ease, color 0.4s ease;
   border-radius: 25px;
 }
-.info h2 { font-size: 2rem; color: #1e40af; margin-bottom: 12px; }
 
-.carta::before{
+.info h2 {
+  font-size: 2rem;
+  color: #1e40af;
+  margin-bottom: 12px;
+}
+
+.carta::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -77,15 +100,40 @@ body {
 }
 
 
-.carta.factura::before { background-image: url("factura.png"); }
-.carta.tienda::before   { background-image: url("tienda.png"); }
-.carta.hotel::before    { background-image: url("hotel.png"); }
-.carta.juego::before    { background-image: url("juego.png"); }
+.carta.factura::before {
+  background-image: url("factura.png");
+}
 
-.carta:hover::before { opacity: 1; transform: scale(1); }
-.carta:hover .info { background: rgba(0,0,0,0.4); color: #fff; }
-.carta:hover .info h2 { color: #fff; }
-.carta:hover { transform: scale(1.03); box-shadow: 0 15px 30px rgba(0,0,0,0.25); }
+.carta.tienda::before {
+  background-image: url("tienda.png");
+}
+
+.carta.hotel::before {
+  background-image: url("hotel.png");
+}
+
+.carta.juego::before {
+  background-image: url("juego.png");
+}
+
+.carta:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.carta:hover .info {
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+
+.carta:hover .info h2 {
+  color: #fff;
+}
+
+.carta:hover {
+  transform: scale(1.03);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
 
 
 @media (max-width: 900px) {
@@ -96,6 +144,12 @@ body {
     height: auto;
     width: 95vw;
   }
-  .carta { height: 250px; }
-  .info h2 { font-size: 1.5rem; }
+
+  .carta {
+    height: 250px;
+  }
+
+  .info h2 {
+    font-size: 1.5rem;
+  }
 }
