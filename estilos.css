@@ -118,6 +118,9 @@ body {
 .carta.calculadora::before {
   background-image: url("calcular.png");
 }
+.carta.pokecard::before {
+  background-image: url("pokecard.png");
+}
 .carta:hover::before {
   opacity: 1;
   transform: scale(1);
