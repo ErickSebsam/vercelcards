@@ -121,6 +121,9 @@ body {
 .carta.pokecard::before {
   background-image: url("pokecard.png");
 }
+.carta.crud::before {
+  background-image: url("crud.png");
+}
 .carta:hover::before {
   opacity: 1;
   transform: scale(1);
