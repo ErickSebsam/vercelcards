@@ -124,6 +124,9 @@ body {
 .carta.crud::before {
   background-image: url("crud.png");
 }
+.carta.temp::before {
+  background-image: url("temp.png");
+}
 .carta:hover::before {
   opacity: 1;
   transform: scale(1);
