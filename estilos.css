@@ -127,6 +127,9 @@ body {
 .carta.temp::before {
   background-image: url("temp.png");
 }
+.carta.citasmascota::before {
+  background-image: url("cita.png");
+}
 .carta:hover::before {
   opacity: 1;
   transform: scale(1);
